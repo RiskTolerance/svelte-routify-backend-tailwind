@@ -14,10 +14,10 @@
     bottom: 20px;
     left: 20px;
     padding: 8px 16px;
-    background: blue;
+    background: white;
     border-radius: 4px;
     font-weight: bold;
-    color: white;
+    color: #777;
   }
 </style>
 
