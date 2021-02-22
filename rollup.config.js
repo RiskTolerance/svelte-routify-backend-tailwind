@@ -10,6 +10,7 @@ import getConfig from '@roxi/routify/lib/utils/config'
 import autoPreprocess from 'svelte-preprocess'
 import postcssImport from 'postcss-import'
 import { injectManifest } from 'rollup-plugin-workbox'
+import sveltePreprocess from "svelte-preprocess";
 
 
 const { distDir } = getConfig() // use Routify's distDir for SSOT
@@ -53,12 +54,10 @@ export default {
             // Extract component CSS — better performance
             css: css => css.write(`bundle.css`),
             hot: isNollup,
-            preprocess: [
-                autoPreprocess({
-                    postcss: { plugins: [postcssImport()] },
-                    defaults: { style: 'postcss' }
-                })
-            ]
+            preprocess: sveltePreprocess({
+                sourceMap: !production,
+                postcss: true,
+              }),
         }),
 
         // resolve matching modules from current working directory
