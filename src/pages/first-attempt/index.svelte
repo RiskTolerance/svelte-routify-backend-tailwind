@@ -1,1 +1,13 @@
-<h1 class="font-serif italic text-5xl">Hello World</h1>
+<div class="card">
+	<h1 class="title">Hello World</h1>
+</div>
+
+<style>
+	.title {
+		@apply font-bold text-3xl;
+	}
+
+	.card {
+		@apply p-6 w-64 bg-yellow-400 rounded flex justify-center;
+	}
+</style>
